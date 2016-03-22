@@ -647,6 +647,7 @@ public class Chess {
 			board.getBlackCounts().put(p.getPieceType(), board.getBlackCounts().get(p.getPieceType()) + 1);
 			board.getBlackCounts().put(PieceType.PAWN, board.getBlackCounts().get(PieceType.PAWN) - 1);
 		}
+		updateProtectedSquares(board);
 	}
 	
 	/**
@@ -684,36 +685,40 @@ public class Chess {
 						}
 					}
 					else {
+						
 						int file = p.getCol();
 						int rank = p.getRow();
-						if (file != 0 && file != 7) {
-							if (p.getColor() == Color.WHITE) {
-								b.getCoveredWhite()[rank-1][file+1] = 1;
-								b.getCoveredWhite()[rank-1][file-1] = 1;
-							}
-							else {
-								b.getCoveredBlack()[rank+1][file+1] = 1;
-								b.getCoveredBlack()[rank+1][file-1] = 1;
-							}
-						}
-						else {
-							if (file == 0) {
+						if (rank != 0 && rank != 7) {
+							if (file != 0 && file != 7) {
 								if (p.getColor() == Color.WHITE) {
 									b.getCoveredWhite()[rank-1][file+1] = 1;
-								}
-								else {
-									b.getCoveredBlack()[rank+1][file+1] = 1;
-								}
-							}
-							else if (file == 7) {
-								if (p.getColor() == Color.WHITE) {
 									b.getCoveredWhite()[rank-1][file-1] = 1;
 								}
 								else {
+									b.getCoveredBlack()[rank+1][file+1] = 1;
 									b.getCoveredBlack()[rank+1][file-1] = 1;
 								}
 							}
+							else {
+								if (file == 0) {
+									if (p.getColor() == Color.WHITE) {
+										b.getCoveredWhite()[rank-1][file+1] = 1;
+									}
+									else {
+										b.getCoveredBlack()[rank+1][file+1] = 1;
+									}
+								}
+								else if (file == 7) {
+									if (p.getColor() == Color.WHITE) {
+										b.getCoveredWhite()[rank-1][file-1] = 1;
+									}
+									else {
+										b.getCoveredBlack()[rank+1][file-1] = 1;
+									}
+								}
+							}
 						}
+						
 					}
 				}
 			}
