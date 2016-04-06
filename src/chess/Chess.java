@@ -13,7 +13,7 @@ public class Chess {
 	
 	static ArrayList<String> white_moves = new ArrayList<String>();
 	static ArrayList<String> black_moves = new ArrayList<String>();
-		
+	
 	static int lastPawnMoveOrCapture = 0;
 	static boolean check = false;
 	static boolean end = false;
