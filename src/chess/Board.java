@@ -225,6 +225,9 @@ public class Board {
 		System.out.println();
 	}
 	
+	/**
+	 * Prints out the squares that black and white are protecting
+	 */
 	public void printProtectedSquares() {
 		System.out.println("Squares covered by black:");
 		for (int i = 0; i < 8; i++) {
