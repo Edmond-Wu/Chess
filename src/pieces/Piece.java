@@ -1,4 +1,4 @@
-package chess;
+package pieces;
 
 import java.util.function.BiFunction;
 
@@ -12,8 +12,8 @@ public abstract class Piece {
 	private Color color;
 	private PieceType piece;
 	private boolean moved;
-	enum Color { WHITE, BLACK };
-	enum PieceType { KING , QUEEN , ROOK, BISHOP, KNIGHT, PAWN };
+	public enum Color { WHITE, BLACK };
+	public enum PieceType { KING , QUEEN , ROOK, BISHOP, KNIGHT, PAWN };
 
 	/**
 	 * Constructor for Piece.

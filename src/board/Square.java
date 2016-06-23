@@ -1,4 +1,6 @@
-package chess;
+package board;
+
+import pieces.Piece;
 
 /** 
  * @author Vincent Xie and Edmond Wu 

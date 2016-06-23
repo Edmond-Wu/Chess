@@ -1,9 +1,15 @@
-package chess;
+package board;
 
 import java.util.*;
 
-import chess.Piece.Color;
-import chess.Piece.PieceType;
+import pieces.Bishop;
+import pieces.King;
+import pieces.Knight;
+import pieces.Pawn;
+import pieces.Queen;
+import pieces.Rook;
+import pieces.Piece.Color;
+import pieces.Piece.PieceType;
 
 /** 
  * @author Vincent Xie and Edmond Wu 

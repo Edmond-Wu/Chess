@@ -1,19 +1,19 @@
-package chess;
+package pieces;
 
 /** 
  * @author Vincent Xie and Edmond Wu 
  */
-public class Rook extends Piece {
-	
+public class Knight extends Piece {
+
 	/**
-	 * Constructor for Rook.
+	 * Constructor for Knight.
 	 * 
 	 * @param row row of the piece
 	 * @param col column of the piece
 	 * @param color color of the piece
 	 */
-	public Rook(int row, int col, Color color){
-		super(row, col, PieceType.ROOK, color);
+	public Knight(int row, int col, Color color){
+		super(row, col, PieceType.KNIGHT, color);
 	}
 	
 	/**
@@ -21,7 +21,7 @@ public class Rook extends Piece {
 	 */
 	public void checkMove(int row, int col) throws IllegalArgumentException {
 		super.checkMove(row, col);
-		if(row != getRow() && col != getCol()){
+		if(!((Math.abs(row - getRow()) == 2 && Math.abs(col - getCol()) == 1) || (Math.abs(row - getRow()) == 1 && Math.abs(col - getCol()) == 2))){
 			throw new IllegalArgumentException();
 		}
 	}
@@ -35,10 +35,10 @@ public class Rook extends Piece {
 	 */
 	public void move(int rank, int file) throws IllegalArgumentException {
 		super.movePiece(rank, file, (r, c) -> {
-			if(r != getRow() && c != getCol()){
-				return false;
+			if((Math.abs(r - getRow()) == 2 && Math.abs(c - getCol()) == 1) || (Math.abs(r - getRow()) == 1 && Math.abs(c - getCol()) == 2)){
+				return true;
 			}
-			return true;
+			return false;
 		});
 	}
 	
@@ -53,6 +53,6 @@ public class Rook extends Piece {
 		else {
 			color_letter = 'b';
 		}
-		return color_letter + "R";
+		return color_letter + "N";
 	}
 }

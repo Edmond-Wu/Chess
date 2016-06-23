@@ -1,20 +1,19 @@
-package chess;
-
+package pieces;
 
 /** 
  * @author Vincent Xie and Edmond Wu 
  */
-public class Bishop extends Piece {
+public class Rook extends Piece {
 	
 	/**
-	 * Constructor for Bishop.
+	 * Constructor for Rook.
 	 * 
 	 * @param row row of the piece
 	 * @param col column of the piece
 	 * @param color color of the piece
 	 */
-	public Bishop(int row, int col, Color color){
-		super(row, col, PieceType.BISHOP, color);
+	public Rook(int row, int col, Color color){
+		super(row, col, PieceType.ROOK, color);
 	}
 	
 	/**
@@ -22,8 +21,7 @@ public class Bishop extends Piece {
 	 */
 	public void checkMove(int row, int col) throws IllegalArgumentException {
 		super.checkMove(row, col);
-		int dr = row - getRow();
-		if (!(col == getCol() + dr || col == getCol() - dr)) {
+		if(row != getRow() && col != getCol()){
 			throw new IllegalArgumentException();
 		}
 	}
@@ -37,8 +35,10 @@ public class Bishop extends Piece {
 	 */
 	public void move(int rank, int file) throws IllegalArgumentException {
 		super.movePiece(rank, file, (r, c) -> {
-			int dr = rank - getRow();
-			return (file == getCol() + dr || file == getCol() - dr);
+			if(r != getRow() && c != getCol()){
+				return false;
+			}
+			return true;
 		});
 	}
 	
@@ -53,6 +53,6 @@ public class Bishop extends Piece {
 		else {
 			color_letter = 'b';
 		}
-		return color_letter + "B";
+		return color_letter + "R";
 	}
 }

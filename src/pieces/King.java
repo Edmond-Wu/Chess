@@ -1,4 +1,4 @@
-package chess;
+package pieces;
 
 /** 
  * @author Vincent Xie and Edmond Wu 
