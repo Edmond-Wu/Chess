@@ -116,7 +116,7 @@ public class Board {
 	 */
 	public void initialize() {
 		for (int i = 0; i < 8; i++) {
-			board[1][i].occupy(new Pawn(1, i, Color.BLACK));
+			//board[1][i].occupy(new Pawn(1, i, Color.BLACK));
 			board[6][i].occupy(new Pawn(6, i, Color.WHITE));
 			if (i == 0 || i == 7) {
 				board[0][i].occupy(new Rook(0, i, Color.BLACK));
